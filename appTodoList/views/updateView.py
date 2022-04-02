@@ -10,7 +10,7 @@ import json
 class UpdateView(generics.UpdateAPIView):
      def put(self, request, *args, **kwargs):
         todolist_data=JSONParser().parse(request)
-        todolist=Todolist.objects.get(Id=todolist_data['Id'])
+        todolist=Todolist.objects.get(tl_id=todolist_data['id'])
         todolist_serializer=TodolistSerializer(todolist,data=todolist_data)
         if todolist_serializer.is_valid():
             todolist_serializer.save()

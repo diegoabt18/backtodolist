@@ -11,7 +11,7 @@ import json
 class DeteleView(generics.DestroyAPIView):
 
     def delete(self, request, *args, **kwargs):
-        todolist=Todolist.objects.get(Id=self.kwargs['id'])
+        todolist=Todolist.objects.get(tl_id=self.kwargs['id'])
         todolist.delete()
         return JsonResponse("Deleted Successfully", safe=False)
 
