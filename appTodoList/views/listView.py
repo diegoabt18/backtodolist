@@ -10,7 +10,9 @@ class ListView(generics.ListAPIView):
 
     def get(self, request, *args, **kwargs):
         todolist=Todolist.objects.all()
+        print(todolist)
         todolist_serializer=TodolistSerializer(data=todolist,many=True)
+        print(todolist_serializer)
         if todolist_serializer.is_valid():
             return JsonResponse(todolist_serializer.data,safe=False)
-        return JsonResponse("Failed to Add",safe=False)
+        return JsonResponse("Failed to list data",safe=False)
