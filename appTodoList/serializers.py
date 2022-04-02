@@ -1,4 +1,4 @@
-from msilib.schema import Class
+#from msilib.schema import Class
 from rest_framework import serializers
 from appTodoList.models import Todolist
 
